@@ -10,6 +10,7 @@ services:
       - mongo
     environment:
       - MONGO_URL=mongodb://mongo:27017
+      - JWT_SECRET=mysecret
     volumes:
       - .:/app
     restart: unless-stopped

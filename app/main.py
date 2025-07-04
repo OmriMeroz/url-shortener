@@ -52,7 +52,7 @@ def generate_short_id(length: int = 6) -> str:
     return ''.join(random.choices(characters, k=length))
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+SECRET_KEY = os.getenv("JWT_SECRET", "mysecret")
 ALGORITHM = "HS256"
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
